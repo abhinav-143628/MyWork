@@ -1,8 +1,5 @@
 package com.abhi.java.threads;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by abhdogra1 on 12/3/2018.
  */
@@ -27,37 +24,28 @@ public class ThreeThreadSynchronization {
 
     }
 
-    class Sequential implements Runnable{
+    private Object mutex = new Object();
+    private volatile int number = 0;
+    class Sequential implements Runnable {
         private int threadValue;
-        public Sequential(int remainder){
+
+        private volatile  int constant = 3;
+
+        public Sequential(int remainder) {
             this.threadValue = remainder;
         }
 
         @Override
         public void run() {
-
-        }
-    }
-    /*public void printSequentiallyWithoutName() throws InterruptedException {
-
-        while (counter1 < 20) {
-            synchronized (this) {
-                if (counter % fixed == 0) {
-                    System.out.println(Thread.currentThread().getName() + " " + counter1++);
-                    Thread.currentThread().sleep(1000);
-                } else if (counter % fixed == 1) {
-                    System.out.println(Thread.currentThread().getName() + " " + counter1++);
-                    Thread.currentThread().sleep(1000);
-                } else if (counter % fixed == 2) {
-                    System.out.println(Thread.currentThread().getName() + " " + counter1++);
-                    Thread.currentThread().sleep(1000);
+            while(number < 20){
+                synchronized (mutex){
+                    if(number % constant == this.threadValue)
+                        System.out.println(Thread.currentThread().getName()+" - "+number++);
                 }
-                notifyAll();
             }
         }
-
     }
-*/
+
     public static void main(String[] args) {
         ThreeThreadSynchronization obj = new ThreeThreadSynchronization();
 
@@ -89,29 +77,13 @@ public class ThreeThreadSynchronization {
             e.printStackTrace();
         }
 
-        Thread t4 = new Thread(() -> {
-//            try {
-//          //      obj.printSequentiallyWithoutName();
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-        });
+        Sequential task1 = obj.new Sequential(0);
+        Sequential task2 = obj.new Sequential(1);
+        Sequential task3 = obj.new Sequential(2);
 
-        Thread t5 = new Thread(() -> {
-//            try {
-//           //     obj.printSequentiallyWithoutName();
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-        });
-
-        Thread t6 = new Thread(() -> {
-//            try {
-//             //   obj.printSequentiallyWithoutName();
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-        });
+        Thread t4 = new Thread(task1, "One");
+        Thread t5 = new Thread(task2,"Two");
+        Thread t6 = new Thread(task3,"Three");
 
         System.out.println("Without name");
         t4.start();
