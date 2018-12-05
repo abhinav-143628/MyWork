@@ -7,7 +7,7 @@ import java.io.ObjectOutputStream;
 
 public class SerializableWriter {
 	public static void main(String[] args) {
-		EmployeeSerilizable empObj = new EmployeeSerilizable();
+		EmployeeSerilizable empObj = new com.abhi.java.Serialization.EmployeeSerilizable();
 		empObj.setEmployeeName("Raxon");
 		empObj.setAge(35);
 		// if don't uncomment this line then during deserialzation default value
@@ -37,6 +37,21 @@ public class SerializableWriter {
 		try (FileOutputStream fo = new FileOutputStream("D:\\Abhinav D\\java_objExternal.ser")) {
 			ObjectOutputStream oStream = new ObjectOutputStream(fo);
 			oStream.writeObject(empObj1);
+			oStream.flush();
+			oStream.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+
+		SerializableNoReflection empObj11 = new SerializableNoReflection("Radha");
+
+		try (FileOutputStream fo = new FileOutputStream("D:\\Abhinav D\\java_objSerialNoReflection.ser")) {
+			ObjectOutputStream oStream = new ObjectOutputStream(fo);
+			oStream.writeObject(empObj11);
 			oStream.flush();
 			oStream.close();
 		} catch (FileNotFoundException e) {
