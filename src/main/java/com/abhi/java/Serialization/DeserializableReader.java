@@ -1,5 +1,7 @@
 package com.abhi.java.Serialization;
 
+import com.abhi.java.Serialization.EmployeeSerilizable;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -28,7 +30,17 @@ public class DeserializableReader {
 		} catch (IOException | ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} 
+		}
+
+		SerializableNoReflection empObj11 = new SerializableNoReflection("Radha123");
+		try(FileInputStream fi = new FileInputStream("D:\\Abhinav D\\java_objSerialNoReflection.ser")) {
+			ObjectInputStream is = new ObjectInputStream(fi);
+			empObj11 = (SerializableNoReflection) is.readObject();
+			is.close();
+		} catch (IOException | ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

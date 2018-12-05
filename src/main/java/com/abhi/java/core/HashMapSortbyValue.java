@@ -1,12 +1,6 @@
 package com.abhi.java.core;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
 
 public class HashMapSortbyValue {
@@ -27,7 +21,7 @@ public class HashMapSortbyValue {
 		for(Entry<String,Integer> nt : it){
 			m2.put(nt.getKey(), nt.getValue());
 		}
-		
+
 		return m2;
 	}
 	
