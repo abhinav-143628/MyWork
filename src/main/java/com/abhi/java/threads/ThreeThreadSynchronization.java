@@ -39,6 +39,7 @@ public class ThreeThreadSynchronization {
         public void run() {
             while(number < 20){
                 synchronized (mutex){
+                   // System.out.println(Thread.currentThread().getName());
                     if(number % constant == this.threadValue)
                         System.out.println(Thread.currentThread().getName()+" - "+number++);
                 }
@@ -70,8 +71,8 @@ public class ThreeThreadSynchronization {
         t3.start();
 
         try {
-            t1.join();
             t2.join();
+            t1.join();
             t3.join();
         } catch (InterruptedException e) {
             e.printStackTrace();

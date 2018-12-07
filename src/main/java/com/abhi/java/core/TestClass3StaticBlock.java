@@ -8,6 +8,7 @@ public class TestClass3StaticBlock {
 	final int c;
 	static final int d;
 	static final int e = 51;
+	static final int z1;
 
 	static {
 		System.out.println("I am static");
@@ -16,6 +17,7 @@ public class TestClass3StaticBlock {
 		System.out.println("Static b :" + b);
 		b = 10;
 		System.out.println("Static b:" + b);
+		z1 = 10;
 	}
 
 	public TestClass3StaticBlock() {
