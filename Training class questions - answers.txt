@@ -1,0 +1,6 @@
+How does comparator and comparable works internally?
+
+Ans: They Collections.sort internally call compare/compareTo methods to and get -1,0,1 as output. Based on these results it compares every elements with the list and place this element accordingly where is fits.
+
+
+

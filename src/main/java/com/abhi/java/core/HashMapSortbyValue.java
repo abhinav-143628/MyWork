@@ -43,6 +43,19 @@ public class HashMapSortbyValue {
 		m.put("abc2", 1);
 		m.put("abc5", 5);
 		m.put("abc4", 8);
+		m.put("abc11", 2);
+		m.put("abc112", 1);
+		m.put("abc111", 2);
+		m.put("abc112", 1);
+		m.put("abc35", 5);
+		m.put("abc34", 8);
+		m.put("abc42", 1);
+		m.put("abc55", 5);
+		m.put("abc74", 8);
+		m.put("abc734", 8);
+		m.put("abc842", 1);
+		m.put("abc555", 5);
+		m.put("abc474", 8);
 		
 		Map<String,Integer> hm1 = sortMap(m);
 		System.out.println("by key");
