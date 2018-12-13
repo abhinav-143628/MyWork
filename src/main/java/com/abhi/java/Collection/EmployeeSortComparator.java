@@ -39,7 +39,7 @@ public class EmployeeSortComparator implements Comparator<EmployeeSort> {
         obj1.setLastName("wtwo");
 
         EmployeeSort obj2 = new EmployeeSort();
-        obj2.setFirstName("Abhi");
+        obj2.setFirstName("EAbhi");
         obj2.setLastName("");
 
         EmployeeSort obj3 = new EmployeeSort();

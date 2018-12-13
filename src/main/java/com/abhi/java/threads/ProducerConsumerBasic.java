@@ -1,7 +1,6 @@
 package com.abhi.java.threads;
 
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
 /**
