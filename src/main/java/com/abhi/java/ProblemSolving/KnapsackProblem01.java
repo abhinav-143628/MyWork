@@ -15,13 +15,13 @@ public class KnapsackProblem01 {
 
     private static int knapsack(int[] value, int[] weight, int weightRequired, int length) {
 
-        if (value[length - 1] == 0 || weight[length - 1] == 0)
+        if (weightRequired == 0 || length == 0)
             return 0;
 
         if (weight[length - 1] > weightRequired)
-            knapsack(value, weight, weightRequired, length - 1);
+            return knapsack(value, weight, weightRequired, length - 1);
         else
-            return Math.max(knapsack(value, weight, weightRequired, length - 1),
+            return Math.max(value[length-1]+knapsack(value, weight, weightRequired-weight[length-1], length - 1),
                     knapsack(value, weight, weightRequired, length - 1));
 
 //        int maxValue =0, maxWeight = 0;
@@ -34,7 +34,7 @@ public class KnapsackProblem01 {
 //                maxValue += value[i];
 //            }
 //        }
-        return maxValue;
+       // return maxValue;
     }
 }
 
