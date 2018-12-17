@@ -22,8 +22,8 @@ public class GenericsTest {
 //    List<Number> abc111 = new ArrayList<>();
 //    List<Integer> abc112 = abc111;
 
-    public static void getList(List<? extends Number> list){
-        List<? super Number> nList = new ArrayList<>();
+    public static void getList(List<? extends Number> list,List<? super Number> nList){
+        //List<? super Number> nList1 = new ArrayList<>();
         for(Number n : list){
             nList.add(n);
         }
@@ -33,9 +33,9 @@ public class GenericsTest {
     public static void main(String[] args) {
         List<Float> flist = Arrays.asList(1.2f,2.4f,2.2f);
         List<Integer> ilist = Arrays.asList(1,2,2);
-
-        getList(flist);
-        getList(ilist);
+        List<Number> nList = new ArrayList<>();
+        getList(flist,nList);
+        getList(ilist,nList);
     }
 
 

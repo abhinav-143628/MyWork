@@ -13,5 +13,6 @@ public class TestCollectionSync {
         //Difference betweeen below 2
         Collections.synchronizedMap(new HashMap<String,Integer>());
         Hashtable<String,Integer> tableMap = new Hashtable<>();
+
     }
 }
