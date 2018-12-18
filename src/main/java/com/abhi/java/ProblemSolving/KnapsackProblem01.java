@@ -13,6 +13,7 @@ public class KnapsackProblem01 {
         System.out.println(knapsack(value, weight, weightRequired, length));
     }
 
+    //through recursion
     private static int knapsack(int[] value, int[] weight, int weightRequired, int length) {
 
         if (weightRequired == 0 || length == 0)
@@ -24,17 +25,6 @@ public class KnapsackProblem01 {
             return Math.max(value[length-1]+knapsack(value, weight, weightRequired-weight[length-1], length - 1),
                     knapsack(value, weight, weightRequired, length - 1));
 
-//        int maxValue =0, maxWeight = 0;
-//
-//        for(int i=0;i<length;i++){
-//            maxWeight +=weight[i];
-//            if(maxWeight > weightRequired)
-//                break;
-//            else if(maxWeight <=weightRequired){
-//                maxValue += value[i];
-//            }
-//        }
-       // return maxValue;
     }
 }
 

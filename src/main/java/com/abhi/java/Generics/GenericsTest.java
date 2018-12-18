@@ -9,9 +9,10 @@ import java.util.List;
  */
 public class GenericsTest {
 
-    Integer[] abc = {1,2,3,2};
-    Number[] abc1 = abc;
-
+    Integer[] abc = new Integer[] {1,2,3,2};
+    Number[] abc2 = abc;
+    Number[] abc1 = new Number[5];
+   // abc1 = abc;
 
 //    Number[] abcd1 = {1,2,3,2};
 //    Integer[] abcd = abcd1;
