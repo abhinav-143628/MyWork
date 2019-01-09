@@ -4,3 +4,5 @@ Ans: They Collections.sort internally call compare/compareTo methods to and get 
 
 
 
+
+
