@@ -8,7 +8,6 @@ public class EmployeeSort implements Comparable<EmployeeSort> {
 	private String name;
 	private double Salary;
 
-
 	public int getId() {
 		return id;
 	}
