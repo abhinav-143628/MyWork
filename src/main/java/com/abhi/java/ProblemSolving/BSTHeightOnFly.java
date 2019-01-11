@@ -59,7 +59,7 @@ public class BSTHeightOnFly {
             head.data = minValue(head.right);
             head.right = delete(head.right, head.data,flag);
         }
-        System.out.println("heightof tree after deletion: "+head.height);
+        System.out.println("height of tree after deletion: "+head.height);
         return head;
     }
 
