@@ -29,21 +29,48 @@ public class BSTHeightOnFly {
 
     public void delete(int data){
 
-       delete(head,data);
+       delete(head,data, false);
     }
 
-    private Node delete(Node head, int data) {
-        if(head.data == data){
+    private Node delete(Node head, int data, boolean flag) {
+        if(head == null){
             return head;
         }
 
-        if(head.data > data){
-            head.right = delete(head.right,data);
-        } else if(head.data < data){
-            head.left = delete(head.left,data);
-        }
+        if(flag)
+            head.height--;
+        if(data < head.data)
+            head.left = delete(head.left, data,flag);
+        else if(data > head.data)
+            head.right = delete(head.right,data,flag);
+        else{
+            //if one of the child node is null we return that node directly to respective recc call
+            // in this case we are finding min value at right tree and use that value to replace it with node to be deleted
+            //if we don't have any right tree and also left is null (as left of that node will be null) is assigned to the calling recc call
+            if(head.right == null) {
+                flag = true;
+                return head.left;
+            }
+            if(head.left == null) {
+                flag = true;
+                return head.right;
+            }
 
-       // if(head.left)
+            head.data = minValue(head.right);
+            head.right = delete(head.right, head.data,flag);
+        }
+        System.out.println("heightof tree after deletion: "+head.height);
+        return head;
+    }
+
+    private int minValue(Node right) {
+        int minVal = right.data;
+
+        while(right.left != null){
+            minVal = right.left.data;
+            right = right.left;
+        }
+        return minVal;
     }
 
     // Extra space
@@ -117,6 +144,18 @@ public class BSTHeightOnFly {
         obj.insert(40);
         obj.insert(80);
         obj.insert(20);
+        obj.insert(95);
+        obj.insert(85);
+        obj.insert(92);
+        obj.insert(105);
+
+        System.out.println("tree before deletion");
+        obj.printTree();
+
+        obj.delete(40);
+        obj.delete(90);
+
+        System.out.println("tree after deletion");
 
         obj.printTree();
 
