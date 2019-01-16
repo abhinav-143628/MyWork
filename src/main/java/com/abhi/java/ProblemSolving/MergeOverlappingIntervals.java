@@ -9,6 +9,7 @@ public class MergeOverlappingIntervals {
     static class Intervals{
         int first;
         int last;
+        String abc;
         public Intervals(int first, int last){
             this.first = first;
             this.last = last;
