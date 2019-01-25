@@ -20,15 +20,15 @@ public class BSTHeightOnFly {
         }
     }
     Node head;
+    Node head1;
     public void insert(int data){
 
-        head=insertNode(this.head, data,new ArrayList<Node>());
-        head=insertNode1(this.head, data,null, false);
+         head=insertNode(this.head, data,new ArrayList<Node>());
+         head1=insertNode1(this.head1, data,null, false);
     }
 
 
     public void delete(int data){
-
        delete(head,data, false);
     }
 
@@ -100,16 +100,16 @@ public class BSTHeightOnFly {
     //No extra space
     private Node insertNode1(Node head, int data, Node prev, boolean flag) {
         if(head == null){
-            if(prev.right == null && prev.left == null)
-                flag = true;
+            if(prev!=null && prev.right == null && prev.left == null)
+                flag = false;
             head = new Node(data);
         }
 
         prev = head;
         if(data > head.data){
-            head.right = insertNode1(head.right,data, prev,flag);
+            head.right = insertNode1(head.right,data, prev,true);
         }else if( data < head.data){
-            head.left = insertNode1(head.left,data,prev,flag);
+            head.left = insertNode1(head.left,data,prev,true);
         }
 
         if(flag){

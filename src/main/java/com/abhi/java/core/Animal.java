@@ -5,7 +5,11 @@ package com.abhi.java.core;
  */
 public class Animal {
     public Animal eat(){
-        System.out.println("animal");
+        System.out.println("animal eat");
         return this;
+    }
+
+    public void myAnimal(){
+        System.out.println("animal");
     }
 }
