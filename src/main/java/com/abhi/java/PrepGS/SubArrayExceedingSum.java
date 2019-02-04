@@ -66,6 +66,46 @@ public class SubArrayExceedingSum {
         return minLength == size+1 ? -1 : minLength;
     }
 
+    //Other approach, its doing the same thing, but using if/else
+    public static int subArrayExceedsSum2(int arr[], int target )
+    {
+        int i = 0, j = 0, length = Integer.MAX_VALUE, size = arr.length;
+
+        if( target <= 0 )
+            return 0;
+
+        if( size < 1 )
+            return -1;
+
+        int currsum = arr[ 0 ];
+        while( true )
+        {
+            if( currsum >= target )
+                if( i == j )
+                    return( 1 );
+                else
+                {
+                    if( j - i + 1 < length )
+                        length = j - i + 1;
+                    currsum -= arr[ i ];
+                    i++;
+                }
+            else
+            {
+                j++;
+                if( j == size )
+                    break;
+                else
+                    currsum += arr[ j ];
+            }
+        }
+
+        if( length == Integer.MAX_VALUE )
+            return -1;
+
+        return length;
+    }
+
     /**
      * int doTestsPass()
      * Returns 1 if all tests pass. Otherwise returns 0.
