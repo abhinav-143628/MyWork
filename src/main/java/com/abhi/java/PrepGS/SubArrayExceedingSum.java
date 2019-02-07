@@ -5,15 +5,9 @@ package com.abhi.java.PrepGS;
  */
 
 /*
- Instructions to candidate.
   1) Your task is ultimately to implement a function that takes in an array of non-negative numbers and an integer.
    You want to return the *LENGTH* of the shortest subarray whose sum is at least the integer,
    and -1 if no such sum exists.
-  2) Run this code in the REPL to observe its behaviour. The
-   execution entry point is main().
-  3) Consider adding some additional tests in doTestsPass().
-  4) Implement subArrayExceedsSum() correctly.
-  5) If time permits, some possible follow-ups.
 */
 public class SubArrayExceedingSum {
 

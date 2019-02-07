@@ -8,7 +8,6 @@ import java.util.Arrays;
  */
 
 /*
-== Instructions ==
 
 ** There is a staircase with 'n' number of steps. A child
 ** walks by and wants to climb up the stairs, starting at

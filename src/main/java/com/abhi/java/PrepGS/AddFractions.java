@@ -6,8 +6,12 @@ package com.abhi.java.PrepGS;
 public class AddFractions {
 
     /**
-     * boolean doTestsPass()
-     * Returns true if all the tests pass. Otherwise returns false.
+     * int[] addFractions ( int[] fraction1, int[] fraction2 )
+     *
+     * Given two fractions passed in as int arrays,
+     * returns the fraction which is result of adding the two input fractions
+     * Fraction is represented as a two-element array - [ numerator, denominator ]
+     * The returned fraction has to be in its simplest form.
      */
     public static boolean doTestsPass() {
 
