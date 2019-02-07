@@ -7,16 +7,7 @@ package com.abhi.java.PrepGS;
 import java.util.*;
 
 /**
- * Instructions to candidate.
- * 1) Run this code in the REPL to observe its behaviour. The
- * execution entry point is main().
- * 2) Consider adding some additional tests in doTestsPass().
- * 3) Implement def shortestPath(self, fromStationName, toStationName)
- * method to find shortest path between 2 stations
- * 4) If time permits, some possible follow-ups.
- */
-
-/*
+ *
  *      Visual representation of the Train map used
  *
  *      King's Cross St Pancras --- Angel ---- Old Street

@@ -5,6 +5,20 @@ import java.util.HashMap;
 /**
  * Created by abhdogra1 on 1/29/2019.
  */
+
+/**
+ * String findTopIpaddress(String[] lines)
+ * Given an Apache log file, return IP address(es) which accesses the site most often.
+ *
+ * Our log is in this format (Common Log Format). One entry per line.
+ * 10.0.0.1 - frank [10/Dec/2000:12:34:56 -0500] "GET /a.gif HTTP/1.0" 200 234
+ *
+ * Log file entries are passsed as an array.
+ *
+ * NOTE: In case of tie, this returns a comma-separated list of the IP
+ * addresses. Tie is not mentioned explicitly in the exercise on purpose.
+ *
+ */
 public class ApacheLog {
 
     public static String findTopIpaddress(String[] lines) {
