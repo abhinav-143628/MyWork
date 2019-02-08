@@ -1,4 +1,4 @@
-package com.abhi.java.PrepGS;
+package com.abhi.java.Preperation;
 
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
