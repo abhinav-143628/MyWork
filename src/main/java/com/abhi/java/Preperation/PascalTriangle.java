@@ -1,8 +1,7 @@
 package com.abhi.java.Preperation;
 
-import org.junit.Assert;
-import org.junit.jupiter.api.Test;
-import org.junit.runner.JUnitCore;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by abhdogra1 on 2/7/2019.
@@ -34,18 +33,40 @@ import org.junit.runner.JUnitCore;
 public class PascalTriangle {
 
     /*Asserts on value returned from pascal */
-    @Test
-    public void doTestsPass(){
-        Assert.assertTrue(PascalTriangle.pascal(0,0) ==  1);
-        Assert.assertTrue(PascalTriangle.pascal(1,2) ==  2);
-        Assert.assertTrue(PascalTriangle.pascal(5,6) ==  6);
-    }
+//    @Test
+//    public void doTestsPass(){
+//        Assert.assertTrue(PascalTriangle.pascal(0,0) ==  1);
+//        Assert.assertTrue(PascalTriangle.pascal(1,2) ==  2);
+//        Assert.assertTrue(PascalTriangle.pascal(5,6) ==  6);
+//    }
 
-    public static int pascal( int Col, int Row ){
-        return 0;
+    public static Map<Integer, Map<Integer, Integer>> pascalHash = new HashMap<>();
+
+    public static  int pascal(int col, int row){
+        if(col == 0 || col == row) {
+            return 1;
+        }
+        int pascalValue = 0;
+        if(pascalHash.containsKey(col)){
+            if(pascalHash.get(col).containsKey(row)){
+                return pascalHash.get(col).get(row);
+            }
+            else{
+                pascalValue = pascal(col, row - 1) + pascal(col - 1, row - 1);
+                pascalHash.get(col).put(row,pascalValue);
+            }
+        }
+        else{
+            pascalValue = pascal(col, row - 1) + pascal(col - 1, row - 1);
+            Map<Integer, Integer> rowHashMap = new HashMap();
+            rowHashMap.put(row,pascalValue);
+            pascalHash.put(col,rowHashMap);
+        }
+        return pascalValue;
     }
 
     public static void main(String[] args) {
-        JUnitCore.main("Solution");
+      //  JUnitCore.main("PascalTriangle");
+        System.out.println(pascal(5,6));
     }
 }
